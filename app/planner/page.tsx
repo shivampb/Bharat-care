@@ -90,7 +90,7 @@ export default function Planner() {
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 shrink-0 ${sec.item ? "bg-primary/10 text-primary" : "bg-slate-100 text-slate-400"}`}>
                   <sec.icon className="w-6 h-6" />
                 </div>
-                <div className="flex-grow">
+                <div className="grow">
                   <p className="text-xs font-semibold uppercase text-muted-foreground tracking-wider mb-1">{sec.label}</p>
                   {sec.item ? (
                     <p className="font-bold text-foreground text-lg leading-tight">{sec.item.name}</p>
@@ -241,7 +241,7 @@ export default function Planner() {
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="w-full py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-primary to-teal-500 text-white shadow-xl shadow-primary/20 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:pointer-events-none transition-all duration-300 flex items-center justify-center"
+                    className="w-full py-4 rounded-xl font-bold text-lg bg-linear-to-r from-primary to-teal-500 text-white shadow-xl shadow-primary/20 hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:pointer-events-none transition-all duration-300 flex items-center justify-center"
                   >
                     {isPending ? (
                       <>

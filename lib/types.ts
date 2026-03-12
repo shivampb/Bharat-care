@@ -55,10 +55,10 @@ export interface Inquiry {
   phone: string;
   country: string;
   age: number;
-  procedureId: number;
-  hospitalId: number;
-  doctorId: number;
-  accommodationId: number;
+  procedureId: number | null;
+  hospitalId: number | null;
+  doctorId: number | null;
+  accommodationId: number | null;
   medicalNotes: string;
   visaStatus: string;
   status: string;
@@ -71,10 +71,10 @@ export interface InsertInquiry {
   phone: string;
   country: string;
   age: number;
-  procedureId: number;
-  hospitalId: number;
-  doctorId: number;
-  accommodationId: number;
+  procedureId: number | null;
+  hospitalId: number | null;
+  doctorId: number | null;
+  accommodationId: number | null;
   medicalNotes: string;
   visaStatus: string;
 }

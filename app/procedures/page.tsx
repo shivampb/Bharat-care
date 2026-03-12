@@ -99,7 +99,7 @@ export default function Procedures() {
                     alt={proc.name}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <p className="font-semibold text-lg">{proc.name}</p>
                     <div className="flex items-center gap-3">
@@ -150,6 +150,19 @@ export default function Procedures() {
                 No procedures found matching "{searchQuery}". Try adjusting your search.
               </div>
             )}
+
+            <div className="col-span-full flex flex-col items-center gap-6 pt-10 border-t border-slate-200/60 mt-4">
+              <div className="text-center space-y-2">
+                <h4 className="text-lg font-bold text-slate-800">Not sure about a procedure yet?</h4>
+                <p className="text-sm text-slate-500 max-w-md">Our medical experts can help diagnose and suggest the best treatment for your condition during your first consultation.</p>
+              </div>
+              <button 
+                onClick={() => router.push("/hospitals")}
+                className="group px-8 py-3.5 rounded-2xl bg-white border-2 border-slate-200 text-slate-600 font-bold hover:border-primary hover:text-primary transition-all flex items-center shadow-xs"
+              >
+                Skip Procedure Selection <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </div>
         )}
       </div>

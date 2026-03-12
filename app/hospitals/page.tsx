@@ -193,6 +193,19 @@ export default function Hospitals() {
                 No facilities found matching "{searchQuery}". Try adjusting your search.
               </div>
             )}
+
+            <div className="col-span-full flex flex-col items-center gap-6 pt-10 border-t border-slate-200/60 mt-4">
+              <div className="text-center space-y-2">
+                <h4 className="text-lg font-bold text-slate-800">Not ready to pick a hospital?</h4>
+                <p className="text-sm text-slate-500 max-w-md">Our concierge team will recommend the most suitable internationally accredited facilities based on your specific treatment needs.</p>
+              </div>
+              <button 
+                onClick={() => router.push("/doctors")}
+                className="group px-8 py-3.5 rounded-2xl bg-white border-2 border-slate-200 text-slate-600 font-bold hover:border-primary hover:text-primary transition-all flex items-center shadow-xs"
+              >
+                Skip Hospital Selection <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </div>
         )}
       </div>
