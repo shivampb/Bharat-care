@@ -117,13 +117,11 @@ export default function Doctors() {
                       alt={doc.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-1 left-1">
-                      <div className="bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded-md text-primary font-bold text-[8px] uppercase tracking-wider shadow-sm border border-slate-100">
-                        {doc.category || "Standard Medical"}
-                      </div>
-                    </div>
                   </div>
                   <div>
+                    <div className="inline-flex items-center px-2 py-0.5 rounded-md bg-secondary/10 text-secondary font-bold text-[9px] uppercase tracking-wider mb-2 border border-secondary/20">
+                      {doc.category || "Standard Medical"}
+                    </div>
                     <h3 className="text-xl font-bold text-foreground leading-tight mb-1">{doc.name}</h3>
                     <p className="text-primary font-medium text-sm mb-1">{doc.specialty}</p>
                     {doc.rating && (

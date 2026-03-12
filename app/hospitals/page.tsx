@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Loader2, MapPin, Award, ArrowRight, Search } from "lucide-react";
+import { Loader2, MapPin, Award, ArrowRight, Search, Star } from "lucide-react";
 import { useHospitals } from "@/hooks/use-hospitals";
 import { usePlannerStore } from "@/store/use-planner-store";
 import { PlannerProgress } from "@/components/PlannerProgress";
@@ -131,6 +131,24 @@ export default function Hospitals() {
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Accreditations</p>
                         <p className="text-sm text-foreground font-medium">{hosp.accreditations}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Rating</p>
+                        <div className="flex items-center gap-1 mt-1">
+                          {[...Array(5)].map((_, i) => {
+                            const ratingValue = parseFloat(hosp.rating || "4.8");
+                            const isFull = i + 1 <= Math.floor(ratingValue);
+                            const isHalf = !isFull && i < ratingValue;
+                            
+                            return (
+                              <Star 
+                                key={i} 
+                                className={`w-4 h-4 ${isFull || isHalf ? "text-yellow-400 fill-yellow-400" : "text-slate-200"}`} 
+                              />
+                            );
+                          })}
+                          <span className="ml-2 text-sm font-bold text-foreground">{hosp.rating || "4.8"}</span>
+                        </div>
                       </div>
                     </div>
 

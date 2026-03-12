@@ -12,6 +12,7 @@ export async function GET() {
       specialties: doc.data.specialties || "",
       accreditations: doc.data.accreditations || "",
       image: doc.data.image?.url || "",
+      rating: (doc.data as any).rating || "4.8", // Default rating if missing
       freeAirportTransfers: doc.data.free_airport_transfers ?? false,
       internationalTranslators: doc.data.international_translators ?? false,
     }));

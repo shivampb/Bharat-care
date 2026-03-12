@@ -18,6 +18,7 @@ export interface Hospital {
   specialties: string;
   accreditations: string;
   image: string;
+  rating?: string;
 }
 
 export interface Doctor {

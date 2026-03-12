@@ -37,15 +37,13 @@ export default function Planner() {
   });
 
   const onSubmit = async (data: InquiryFormValues) => {
-    if (!isComplete()) return;
-
     try {
       await createInquiry({
         ...data,
-        procedureId: procedure!.id,
-        hospitalId: hospital!.id,
-        doctorId: doctor!.id,
-        accommodationId: accommodation!.id,
+        procedureId: procedure?.id || null,
+        hospitalId: hospital?.id || null,
+        doctorId: doctor?.id || null,
+        accommodationId: accommodation?.id || null,
       });
 
       clearPlanner();
@@ -132,16 +130,33 @@ export default function Planner() {
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-border">
               <h2 className="text-2xl font-bold mb-8">Patient Details</h2>
 
-              {!readyToSubmit ? (
-                <div className="bg-amber-50 border border-amber-200 p-6 rounded-2xl flex items-start text-amber-800">
+              {!procedure && !hospital && !doctor && !accommodation ? (
+                <div className="bg-blue-50 border border-blue-200 p-6 rounded-2xl flex items-start text-blue-800 mb-8">
                   <AlertCircle className="w-6 h-6 mr-3 shrink-0" />
                   <div>
-                    <h4 className="font-bold mb-1">Incomplete Plan</h4>
-                    <p className="text-sm">Please complete all selections (Procedure, Hospital, Doctor, and Accommodation) on the left before requesting a consultation.</p>
+                    <h4 className="font-bold mb-1">Direct Consultation</h4>
+                    <p className="text-sm">You haven't selected any specific services yet. You can still submit this form, and our experts will help build a custom plan for you.</p>
+                  </div>
+                </div>
+              ) : !readyToSubmit ? (
+                <div className="bg-amber-50 border border-amber-200 p-6 rounded-2xl flex items-start text-amber-800 mb-8">
+                  <AlertCircle className="w-6 h-6 mr-3 shrink-0" />
+                  <div>
+                    <h4 className="font-bold mb-1">Partial Selections</h4>
+                    <p className="text-sm">You have only selected some services. That's perfectly fine! Our team will help fill in the gaps during your consultation.</p>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl flex items-start text-emerald-800 mb-8">
+                  <CheckCircle2 className="w-6 h-6 mr-3 shrink-0" />
+                  <div>
+                    <h4 className="font-bold mb-1">Plan Complete</h4>
+                    <p className="text-sm">Excellent! You've selected all key services. Fill in your details below to lock in your personalized medical trip.</p>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-semibold text-foreground">Full Name</label>
@@ -243,7 +258,6 @@ export default function Planner() {
                     Your information is secure and encrypted. Our medical concierge will contact you within 24 hours.
                   </p>
                 </form>
-              )}
             </div>
           </div>
         </div>

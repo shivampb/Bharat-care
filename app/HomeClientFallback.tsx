@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Star, MapPin, Briefcase } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { Procedure, Hospital, Doctor, Accommodation } from "@/lib/types";
 
@@ -144,13 +144,13 @@ export default function HomeClientFallback() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[100dvh] lg:h-[calc(100vh-4rem)] w-full flex flex-col lg:flex-row items-center pt-6 sm:pt-8 lg:pt-0 overflow-hidden bg-background">
+      <section className="relative min-h-dvh lg:h-[calc(100vh-4rem)] w-full flex flex-col lg:flex-row items-center pt-6 sm:pt-8 lg:pt-0 overflow-hidden bg-background">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 bg-background" />
 
           {/* Soft, minimal gradient orbs - Enhanced for mobile */}
-          <div className="absolute top-[-10%] left-[-10%] w-[100vw] h-[100vw] lg:w-[40vw] lg:h-[40vw] rounded-full bg-primary/8 blur-[80px] lg:blur-[120px]" />
+          <div className="absolute top-[-10%] left-[-10%] w-screen h-[100vw] lg:w-[40vw] lg:h-[40vw] rounded-full bg-primary/8 blur-[80px] lg:blur-[120px]" />
           <div className="absolute bottom-[-5%] right-[-5%] w-[80vw] h-[80vw] lg:w-[45vw] lg:h-[45vw] rounded-full bg-secondary/8 blur-[80px] lg:blur-[120px]" />
           <div className="absolute top-[20%] left-[20%] w-[60vw] h-[60vw] lg:w-[25vw] lg:h-[25vw] rounded-full bg-teal-400/5 blur-[60px] lg:blur-[100px]" />
 
@@ -187,7 +187,7 @@ export default function HomeClientFallback() {
 
             {/* Description */}
             <p className="text-base sm:text-lg lg:text-[1.1rem] text-slate-600 mb-8 lg:mb-10 leading-relaxed max-w-[520px] mx-auto lg:mx-0">
-              Seamlessly plan your medical trip in India. Choose from leading procedures, top-rated hospitals, expert doctors, and luxury accommodations all in one place.
+              Welcome to India. Seamlessly plan your medical trip. Choose from leading procedures, top-rated hospitals, expert doctors, and luxury accommodations all in one place.
             </p>
 
             {/* Buttons */}
@@ -219,7 +219,7 @@ export default function HomeClientFallback() {
           {/* Mobile visible image wrapper */}
           <div className="relative w-full max-w-[320px] sm:max-w-lg mx-auto flex justify-center pb-0 mt-12 lg:hidden pointer-events-none z-10 px-4">
             {/* Decorative shapes for mobile like in reference */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-50" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 bg-linear-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-50" />
             <div className="absolute top-[10%] right-[10%] w-24 h-48 bg-yellow-400/20 rounded-full -z-10 rotate-12 blur-xl" />
             <div className="absolute bottom-[20%] left-[5%] w-32 h-16 bg-primary/20 rounded-full -z-10 -rotate-12 blur-xl" />
             
@@ -362,13 +362,32 @@ export default function HomeClientFallback() {
                       alt={hospital.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    {hospital.rating && (
+                      <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg text-foreground font-bold text-xs flex items-center shadow-lg border border-slate-100">
+                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500 mr-1" />
+                        {hospital.rating}
+                      </div>
+                    )}
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{hospital.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">📍 {hospital.location}</p>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{hospital.specialties}</p>
-                    <div className="flex items-center gap-2 mt-auto">
-                      <span className="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">{hospital.accreditations}</span>
+                  <div className="p-6 flex flex-col grow">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-bold bg-primary/10 text-primary px-2.5 py-1 rounded-full uppercase tracking-wider border border-primary/20">
+                        {hospital.accreditations}
+                      </span>
+                      <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-100">
+                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                        <span className="text-[11px] font-bold text-amber-700">{hospital.rating || "4.8"}</span>
+                      </div>
+                    </div>
+                    <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors leading-tight">{hospital.name}</h3>
+                    <div className="flex items-center text-slate-500 text-xs mb-4">
+                      <MapPin className="w-3.5 h-3.5 mr-1 text-secondary" />
+                      {hospital.location}
+                    </div>
+                    <p className="text-sm text-slate-600 mb-4 line-clamp-2 leading-relaxed">{hospital.specialties}</p>
+                    <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">View Details</span>
+                      <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -407,10 +426,25 @@ export default function HomeClientFallback() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{doctor.name}</h3>
-                    <p className="text-primary font-semibold text-sm mb-3">{doctor.specialty}</p>
-                    <p className="text-muted-foreground text-sm mb-4 mt-auto">{doctor.experience}</p>
+                  <div className="p-6 flex flex-col grow">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-bold bg-secondary/10 text-secondary px-2.5 py-1 rounded-full uppercase tracking-wider border border-secondary/20">
+                        {doctor.specialty}
+                      </span>
+                      <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-100">
+                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                        <span className="text-[11px] font-bold text-amber-700">{doctor.rating || "4.8"}</span>
+                      </div>
+                    </div>
+                    <h3 className="font-display font-bold text-xl mb-1 group-hover:text-primary transition-colors leading-tight">{doctor.name}</h3>
+                    <div className="flex items-center text-slate-500 text-xs mb-4">
+                      <Briefcase className="w-3.5 h-3.5 mr-1 text-secondary" />
+                      {doctor.experience}
+                    </div>
+                    <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">Available Now</span>
+                      <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -451,12 +485,26 @@ export default function HomeClientFallback() {
                       {acc.priceRange}
                     </div>
                   </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{acc.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">Distance: {acc.distance}</p>
-                    
-                    <div className="mt-auto w-full py-2.5 rounded-xl font-semibold flex items-center justify-center transition-all duration-200 bg-slate-100 text-foreground group-hover:bg-primary group-hover:text-white text-sm">
-                      View Details
+                  <div className="p-6 flex flex-col grow">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-bold bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full uppercase tracking-wider border border-teal-100">
+                        Top Rated Stay
+                      </span>
+                      <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-100">
+                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                        <span className="text-[11px] font-bold text-amber-700">{acc.rating || "4.7"}</span>
+                      </div>
+                    </div>
+                    <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors">{acc.name}</h3>
+                    <div className="flex items-center text-slate-500 text-xs mb-4">
+                      <MapPin className="w-3.5 h-3.5 mr-1 text-secondary" />
+                      Distance: {acc.distance}
+                    </div>
+                    <div className="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                      <span className="text-sm font-bold text-primary">{acc.priceRange.split(' / ')[0]}</span>
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
                 </Link>
