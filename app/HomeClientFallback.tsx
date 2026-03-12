@@ -164,25 +164,30 @@ export default function HomeClientFallback() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100"
+                className="flex"
               >
-                <div className="relative h-48 overflow-hidden bg-slate-200">
-                  <img
-                    src={procedure.image}
-                    alt={procedure.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-lg mb-2 text-foreground">{procedure.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{procedure.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-primary font-semibold">{procedure.costRange}</span>
-                    <Link href="/procedures" className="text-primary hover:text-primary/80 font-medium transition">
-                      Select →
-                    </Link>
+                <Link 
+                  href={`/procedures/${procedure.uid || procedure.id}`}
+                  className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col w-full"
+                >
+                  <div className="relative h-48 overflow-hidden bg-slate-200">
+                    <img
+                      src={procedure.image}
+                      alt={procedure.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
-                </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="font-bold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">{procedure.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{procedure.description}</p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="text-primary font-semibold">{procedure.costRange}</span>
+                      <span className="text-primary hover:text-primary/80 font-medium transition flex items-center gap-1">
+                        Select <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -247,23 +252,28 @@ export default function HomeClientFallback() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100"
+                className="flex"
               >
-                <div className="relative h-40 overflow-hidden bg-slate-200">
-                  <img
-                    src={hospital.image}
-                    alt={hospital.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-lg mb-2">{hospital.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">📍 {hospital.location}</p>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{hospital.specialties}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">{hospital.accreditations}</span>
+                <Link 
+                  href={`/hospitals/${hospital.uid || hospital.id}`}
+                  className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col w-full hover:-translate-y-1"
+                >
+                  <div className="relative h-40 overflow-hidden bg-slate-200">
+                    <img
+                      src={hospital.image}
+                      alt={hospital.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
-                </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{hospital.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-3">📍 {hospital.location}</p>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{hospital.specialties}</p>
+                    <div className="flex items-center gap-2 mt-auto">
+                      <span className="text-xs font-semibold bg-green-100 text-green-700 px-3 py-1 rounded-full">{hospital.accreditations}</span>
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -286,20 +296,25 @@ export default function HomeClientFallback() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group text-center rounded-2xl overflow-hidden bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-100"
+                className="flex"
               >
-                <div className="relative h-48 overflow-hidden bg-slate-200">
-                  <img
-                    src={doctor.image}
-                    alt={doctor.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-lg mb-1">{doctor.name}</h3>
-                  <p className="text-primary font-semibold text-sm mb-3">{doctor.specialty}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{doctor.experience}</p>
-                </div>
+                <Link 
+                  href={`/doctors/${doctor.uid || doctor.id}`}
+                  className="group text-center rounded-2xl overflow-hidden bg-slate-50 hover:shadow-lg transition-all duration-300 border border-slate-100 flex flex-col w-full hover:-translate-y-1"
+                >
+                  <div className="relative h-48 overflow-hidden bg-slate-200">
+                    <img
+                      src={doctor.image}
+                      alt={doctor.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{doctor.name}</h3>
+                    <p className="text-primary font-semibold text-sm mb-3">{doctor.specialty}</p>
+                    <p className="text-muted-foreground text-sm mb-4 mt-auto">{doctor.experience}</p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -322,29 +337,31 @@ export default function HomeClientFallback() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group rounded-2xl overflow-hidden bg-white hover:shadow-lg transition-all duration-300 border border-slate-100 flex flex-col"
+                className="flex"
               >
-                <div className="relative h-48 overflow-hidden bg-slate-200">
-                  <img
-                    src={acc.image}
-                    alt={acc.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-white font-bold text-xs flex items-center shadow-lg">
-                    {acc.priceRange}
+                <Link 
+                  href={`/accommodations/${acc.uid || acc.id}`}
+                  className="group rounded-2xl overflow-hidden bg-white hover:shadow-lg transition-all duration-300 border border-slate-100 flex flex-col w-full hover:-translate-y-1"
+                >
+                  <div className="relative h-48 overflow-hidden bg-slate-200">
+                    <img
+                      src={acc.image}
+                      alt={acc.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-white font-bold text-xs flex items-center shadow-lg">
+                      {acc.priceRange}
+                    </div>
                   </div>
-                </div>
-                <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="font-bold text-lg mb-1">{acc.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">Distance: {acc.distance}</p>
-                  
-                  <Link 
-                    href={`/accommodations/${acc.uid || acc.id}`}
-                    className="mt-auto w-full py-2.5 rounded-xl font-semibold flex items-center justify-center transition-all duration-200 bg-slate-100 text-foreground hover:bg-slate-200 text-sm"
-                  >
-                    View Details
-                  </Link>
-                </div>
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{acc.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">Distance: {acc.distance}</p>
+                    
+                    <div className="mt-auto w-full py-2.5 rounded-xl font-semibold flex items-center justify-center transition-all duration-200 bg-slate-100 text-foreground group-hover:bg-primary group-hover:text-white text-sm">
+                      View Details
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
