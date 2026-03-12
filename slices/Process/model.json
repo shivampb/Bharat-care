@@ -1,0 +1,55 @@
+{
+  "id": "process",
+  "type": "SharedSlice",
+  "name": "Process",
+  "description": "Step-by-step process section",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Default variation",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "allowTargetBlank": true,
+            "single": "h2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "allowTargetBlank": true,
+            "single": "p"
+          }
+        }
+      },
+      "items": {
+        "step_number": {
+          "type": "Text",
+          "config": {
+            "label": "Step Number",
+            "placeholder": "01"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Step Title"
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Step Description"
+          }
+        }
+      },
+      "imageUrl": ""
+    }
+  ]
+}

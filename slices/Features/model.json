@@ -1,0 +1,55 @@
+{
+  "id": "features",
+  "type": "SharedSlice",
+  "name": "Features",
+  "description": "Features section with a list of items",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Default variation",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "allowTargetBlank": true,
+            "single": "h2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "allowTargetBlank": true,
+            "single": "p"
+          }
+        }
+      },
+      "items": {
+        "icon": {
+          "type": "Text",
+          "config": {
+            "label": "Emoji Icon",
+            "placeholder": "🏥"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Item Title"
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Item Description"
+          }
+        }
+      },
+      "imageUrl": ""
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "bharat-care",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "slicemachine": "start-slicemachine"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@prismicio/client": "^7.21.6",
+    "@prismicio/next": "^2.2.2",
+    "@prismicio/react": "^3.4.0",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-toast": "^1.2.15",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@tailwindcss/typography": "^0.5.0-alpha.3",
+    "@tanstack/react-query": "^5.90.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.35.2",
+    "lucide-react": "^0.577.0",
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-hook-form": "^7.71.2",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^4.3.6",
+    "zustand": "^5.0.11"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.95",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "slice-machine-ui": "^2.21.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

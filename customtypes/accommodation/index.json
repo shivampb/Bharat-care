@@ -1,0 +1,124 @@
+{
+  "id": "accommodation",
+  "label": "Accommodation",
+  "status": true,
+  "repeatable": true,
+  "format": "custom",
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Taj Palace Hotel"
+        }
+      },
+      "city": {
+        "type": "Text",
+        "config": {
+          "label": "City",
+          "placeholder": "New Delhi"
+        }
+      },
+      "state": {
+        "type": "Text",
+        "config": {
+          "label": "State",
+          "placeholder": "Delhi"
+        }
+      },
+      "location": {
+        "type": "Text",
+        "config": {
+          "label": "Location",
+          "placeholder": "Near Apollo Hospital, Sarita Vihar"
+        }
+      },
+      "distance": {
+        "type": "Text",
+        "config": {
+          "label": "Distance",
+          "placeholder": "2 km"
+        }
+      },
+      "price_range": {
+        "type": "Text",
+        "config": {
+          "label": "Price per night",
+          "placeholder": "$100 - $150 / night"
+        }
+      },
+      "nearby_hospital": {
+        "type": "Link",
+        "config": {
+          "label": "Nearby Hospital",
+          "select": "document",
+          "customtypes": ["hospital"]
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image"
+        }
+      },
+      "features": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Recovery Amenities/Features",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "About Current Accommodation",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "rating": {
+        "type": "Text",
+        "config": {
+          "label": "Guest Rating",
+          "placeholder": "e.g., 4.8 Guest Rating"
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 1200,
+            "height": 630
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

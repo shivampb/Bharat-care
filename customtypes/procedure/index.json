@@ -1,0 +1,116 @@
+{
+  "id": "procedure",
+  "label": "Procedure",
+  "status": true,
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "Standard Medical or Ayurveda",
+          "options": [
+            "Standard Medical",
+            "Ayurveda"
+          ],
+          "default_value": "Standard Medical"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Heart Bypass Surgery"
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": "Brief overview of the procedure..."
+        }
+      },
+      "cost_range": {
+        "type": "Text",
+        "config": {
+          "label": "Cost Range",
+          "placeholder": "$4,500 - $6,500"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image"
+        }
+      },
+      "rich_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Rich Description",
+          "placeholder": "Detailed information about the procedure, recovery, etc.",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "success_rate_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Success Rate Text",
+          "placeholder": "e.g., Our network boasts a 99% success rate...",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true
+        }
+      },
+      "recovery_time": {
+        "type": "Text",
+        "config": {
+          "label": "Recovery Time Duration",
+          "placeholder": "e.g., 7 - 14 Days"
+        }
+      },
+      "recovery_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Recovery Description",
+          "placeholder": "e.g., Most patients can travel back home safely within 2 to 3 weeks...",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 1200,
+            "height": 630
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

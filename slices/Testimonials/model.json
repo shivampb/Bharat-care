@@ -1,0 +1,66 @@
+{
+  "id": "testimonials",
+  "type": "SharedSlice",
+  "name": "Testimonials",
+  "description": "Patient testimonials section",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Default variation",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "allowTargetBlank": true,
+            "single": "h2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "allowTargetBlank": true,
+            "single": "p"
+          }
+        }
+      },
+      "items": {
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "Patient Name"
+          }
+        },
+        "country": {
+          "type": "Text",
+          "config": {
+            "label": "Country"
+          }
+        },
+        "procedure": {
+          "type": "Text",
+          "config": {
+            "label": "Procedure"
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Testimonial Text"
+          }
+        },
+        "rating": {
+          "type": "Number",
+          "config": {
+            "label": "Rating (1-5)"
+          }
+        }
+      },
+      "imageUrl": ""
+    }
+  ]
+}

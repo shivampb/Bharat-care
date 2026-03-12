@@ -1,0 +1,124 @@
+{
+  "id": "hospital",
+  "label": "Hospital",
+  "status": true,
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "Standard Medical or Ayurveda",
+          "options": [
+            "Standard Medical",
+            "Ayurveda"
+          ],
+          "default_value": "Standard Medical"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Apollo Hospital, Delhi"
+        }
+      },
+      "location": {
+        "type": "Text",
+        "config": {
+          "label": "Location",
+          "placeholder": "New Delhi"
+        }
+      },
+      "specialties": {
+        "type": "Text",
+        "config": {
+          "label": "Specialties",
+          "placeholder": "Cardiology, Orthopedics, Oncology"
+        }
+      },
+      "accreditations": {
+        "type": "Text",
+        "config": {
+          "label": "Accreditations",
+          "placeholder": "JCI, NABH"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "About This Hospital",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "free_airport_transfers": {
+        "type": "Boolean",
+        "config": {
+          "label": "Free Airport Transfers Included",
+          "default_value": false,
+          "placeholder_false": "false",
+          "placeholder_true": "true"
+        }
+      },
+      "international_translators": {
+        "type": "Boolean",
+        "config": {
+          "label": "Dedicated International Translators",
+          "default_value": false,
+          "placeholder_false": "false",
+          "placeholder_true": "true"
+        }
+      },
+      "key_specialties_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Key Specialties Description",
+          "placeholder": "e.g., Renowned departments equipped with state-of-the-art...",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 1200,
+            "height": 630
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

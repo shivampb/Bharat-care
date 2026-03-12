@@ -1,0 +1,44 @@
+{
+  "id": "doctors_grid",
+  "type": "SharedSlice",
+  "name": "DoctorsGrid",
+  "description": "Grid of selected doctors",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Default variation",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "h2",
+            "label": "Title"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "p",
+            "label": "Description"
+          }
+        }
+      },
+      "items": {
+        "item": {
+          "type": "Link",
+          "config": {
+            "select": "document",
+            "customtypes": [
+              "doctor"
+            ],
+            "label": "Doctor"
+          }
+        }
+      }
+    }
+  ]
+}

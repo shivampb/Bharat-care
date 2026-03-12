@@ -1,0 +1,53 @@
+{
+  "id": "cta",
+  "type": "SharedSlice",
+  "name": "CTA",
+  "description": "Call-to-action section",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Default variation",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "allowTargetBlank": true,
+            "single": "h2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "allowTargetBlank": true,
+            "single": "p"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link"
+          }
+        },
+        "secondary_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Button Text"
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": ""
+    }
+  ]
+}

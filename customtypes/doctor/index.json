@@ -1,0 +1,125 @@
+{
+  "id": "doctor",
+  "label": "Doctor",
+  "status": true,
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "Standard Medical or Ayurveda",
+          "options": [
+            "Standard Medical",
+            "Ayurveda"
+          ],
+          "default_value": "Standard Medical"
+        }
+      },
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": "Dr. Arun Prasad"
+        }
+      },
+      "specialty": {
+        "type": "Text",
+        "config": {
+          "label": "Specialty",
+          "placeholder": "Cardiothoracic Surgeon"
+        }
+      },
+      "experience": {
+        "type": "Text",
+        "config": {
+          "label": "Experience",
+          "placeholder": "25+ Years"
+        }
+      },
+      "hospital": {
+        "type": "Link",
+        "config": {
+          "label": "Affiliated Hospital",
+          "select": "document",
+          "customtypes": [
+            "hospital"
+          ]
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Profile Image"
+        }
+      },
+      "biography": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Biography",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "rating": {
+        "type": "Text",
+        "config": {
+          "label": "Rating",
+          "placeholder": "e.g., 4.9/5 Rating"
+        }
+      },
+      "accepting_patients": {
+        "type": "Boolean",
+        "config": {
+          "label": "Accepting New Patients",
+          "default_value": true,
+          "placeholder_false": "false",
+          "placeholder_true": "true"
+        }
+      },
+      "free_consultation": {
+        "type": "Boolean",
+        "config": {
+          "label": "Free Initial Video Consultation",
+          "default_value": false,
+          "placeholder_false": "false",
+          "placeholder_true": "true"
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 1200,
+            "height": 630
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}
