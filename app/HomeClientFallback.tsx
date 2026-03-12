@@ -275,7 +275,7 @@ export default function HomeClientFallback() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-5 flex flex-col flex-grow">
+                  <div className="p-5 flex flex-col grow">
                     <h3 className="font-bold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">{procedure.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{procedure.description}</p>
                     <div className="flex items-center justify-between mt-auto">
@@ -569,7 +569,7 @@ export default function HomeClientFallback() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/procedures"
-                className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold bg-gradient-to-r from-primary to-teal-500 text-white shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center justify-center px-10 py-4 rounded-full font-semibold bg-linear-to-r from-primary to-teal-500 text-white shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300"
               >
                 Begin Your Journey
                 <ArrowRight className="ml-2 w-5 h-5" />
