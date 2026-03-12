@@ -66,45 +66,45 @@ export default function HomeClientFallback() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-4rem)] lg:h-[calc(100vh-4rem)] w-full flex items-center pt-20 lg:pt-0 overflow-hidden bg-background">
+      <section className="relative min-h-[100dvh] lg:h-[calc(100vh-4rem)] w-full flex flex-col lg:flex-row items-center pt-6 sm:pt-8 lg:pt-0 overflow-hidden bg-background">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 bg-background" />
 
-          {/* Soft, minimal gradient orbs */}
-          <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] lg:w-[40vw] lg:h-[40vw] rounded-full bg-primary/5 blur-[100px] lg:blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[60vw] h-[60vw] lg:w-[45vw] lg:h-[45vw] rounded-full bg-secondary/5 blur-[100px] lg:blur-[120px]" />
-          <div className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] lg:w-[25vw] lg:h-[25vw] rounded-full bg-teal-400/5 blur-[80px] lg:blur-[100px]" />
+          {/* Soft, minimal gradient orbs - Enhanced for mobile */}
+          <div className="absolute top-[-10%] left-[-10%] w-[100vw] h-[100vw] lg:w-[40vw] lg:h-[40vw] rounded-full bg-primary/8 blur-[80px] lg:blur-[120px]" />
+          <div className="absolute bottom-[-5%] right-[-5%] w-[80vw] h-[80vw] lg:w-[45vw] lg:h-[45vw] rounded-full bg-secondary/8 blur-[80px] lg:blur-[120px]" />
+          <div className="absolute top-[20%] left-[20%] w-[60vw] h-[60vw] lg:w-[25vw] lg:h-[25vw] rounded-full bg-teal-400/5 blur-[60px] lg:blur-[100px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full h-full flex flex-col lg:flex-row items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full h-full flex flex-col lg:flex-row items-center text-center lg:text-left">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full lg:w-[55%] pt-10 lg:pt-0"
+            className="w-full lg:w-[55%] pt-2 lg:pt-0"
           >
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-full bg-primary/10 text-primary font-medium text-xs sm:text-[13px] mb-8 border border-primary/20">
-              <Sparkles className="w-4 h-4 text-primary" />
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-[11px] sm:text-[13px] mb-6 lg:mb-8 border border-primary/20">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
               <span>Affordable World-Class Medical Treatment in India</span>
             </div>
 
             {/* Heading */}
-            <h1 className="text-[3.5rem] sm:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[1.05] tracking-tight mb-6 text-foreground">
-              Your Medical <br />
+            <h1 className="text-[2.5rem] sm:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[1.1] lg:leading-[1.05] tracking-tight mb-5 lg:mb-6 text-foreground">
+              Your Medical <br className="hidden sm:block" />
               Journey, <br />
               <span className="text-secondary">Perfectly Planned</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg lg:text-[1.1rem] text-slate-600 mb-10 leading-relaxed max-w-[520px]">
+            <p className="text-base sm:text-lg lg:text-[1.1rem] text-slate-600 mb-8 lg:mb-10 leading-relaxed max-w-[520px] mx-auto lg:mx-0">
               Seamlessly plan your medical trip in India. Choose from leading procedures, top-rated hospitals, expert doctors, and luxury accommodations all in one place.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
               <Link
                 href="/procedures"
                 className="inline-flex items-center justify-center px-8 lg:px-9 py-4 rounded-full font-bold bg-primary text-primary-foreground shadow-[0_8px_20px_rgba(44,141,118,0.25)] hover:-translate-y-0.5 hover:shadow-[0_12px_25px_rgba(44,141,118,0.35)] hover:bg-primary/90 transition-all duration-300 group"
@@ -127,14 +127,19 @@ export default function HomeClientFallback() {
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="lg:absolute right-0 bottom-0 top-0 w-full lg:w-[50%] h-full flex items-end justify-end pointer-events-none z-10"
+          className="lg:absolute right-0 bottom-0 top-0 w-full lg:w-[50%] flex items-end justify-center lg:justify-end pointer-events-none z-10"
         >
-          {/* Mobile visible image */}
-          <div className="relative w-full max-w-lg mx-auto flex justify-center pb-0 mt-12 lg:hidden pointer-events-none z-10">
+          {/* Mobile visible image wrapper */}
+          <div className="relative w-full max-w-[320px] sm:max-w-lg mx-auto flex justify-center pb-0 mt-12 lg:hidden pointer-events-none z-10 px-4">
+            {/* Decorative shapes for mobile like in reference */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-50" />
+            <div className="absolute top-[10%] right-[10%] w-24 h-48 bg-yellow-400/20 rounded-full -z-10 rotate-12 blur-xl" />
+            <div className="absolute bottom-[20%] left-[5%] w-32 h-16 bg-primary/20 rounded-full -z-10 -rotate-12 blur-xl" />
+            
             <img
               src="/hero.png"
               alt="Medical Professional"
-              className="w-full h-auto max-h-[60vh] object-contain object-bottom drop-shadow-[0_25px_45px_rgba(0,0,0,0.15)] relative z-10"
+              className="w-full h-auto max-h-[45vh] object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10"
             />
           </div>
 
