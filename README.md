@@ -1,5 +1,7 @@
 # 🏥 Bharat Care - Modern Healthcare Portal
 
+Live at https://bharat-care.netlify.app/
+
 ![Bharat Care Banner](./public/banner.png)
 
 Bharat Care is a premium, state-of-the-art healthcare platform designed to bridge the gap between patients and quality medical services. Built with a focus on speed, accessibility, and modern aesthetics, it provides a comprehensive directory of doctors, hospitals, and medical procedures, including a dedicated section for Ayurveda.
