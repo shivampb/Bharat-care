@@ -1,10 +1,88 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Sparkles, Star } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { Procedure, Hospital, Doctor, Accommodation } from "@/lib/types";
+
+const TypewriterWords = ({ words }: { words: string[] }) => {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  // Find the longest word to reserve space and prevent jumping
+  const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), "");
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentFullWord = words[currentWordIndex];
+      
+      if (!isDeleting) {
+        setCurrentText(currentFullWord.substring(0, currentText.length + 1));
+        setTypingSpeed(150);
+
+        if (currentText === currentFullWord) {
+          setIsDeleting(true);
+          setTypingSpeed(2000); // Pause at end of word
+        }
+      } else {
+        setCurrentText(currentFullWord.substring(0, currentText.length - 1));
+        setTypingSpeed(100);
+
+        if (currentText === "") {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+          setTypingSpeed(500); // Pause before next word
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIndex, words, typingSpeed]);
+
+  return (
+    <span className="relative inline-grid">
+      {/* Invisible ghost text to reserve maximum width and height */}
+      <span className="invisible opacity-0 pointer-events-none select-none col-start-1 row-start-1" aria-hidden="true">
+        {longestWord}
+      </span>
+      {/* Actual animated text */}
+      <span className="inline-flex items-center text-primary col-start-1 row-start-1 whitespace-nowrap">
+        {currentText}
+        <motion.span
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+          className="ml-1.5 inline-block w-1.5 h-[0.85em] bg-primary/60 rounded-sm"
+        />
+      </span>
+    </span>
+  );
+};
+
+const FloatingPlus = ({ className, delay = 0, size = "text-xl" }: { className?: string; delay?: number; size?: string }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ 
+      opacity: [0.2, 0.5, 0.2],
+      scale: [1, 1.2, 1],
+      rotate: [0, 90, 0],
+      y: [0, -15, 0]
+    }}
+    transition={{ 
+      duration: 5, 
+      repeat: Infinity, 
+      delay,
+      ease: "easeInOut" 
+    }}
+    className={`absolute text-primary/30 font-display font-light pointer-events-none select-none z-0 ${size} ${className}`}
+  >
+    +
+  </motion.div>
+);
 
 export default function HomeClientFallback() {
   const { data: procedures = [] } = useQuery<Procedure[]>({
@@ -75,6 +153,15 @@ export default function HomeClientFallback() {
           <div className="absolute top-[-10%] left-[-10%] w-[100vw] h-[100vw] lg:w-[40vw] lg:h-[40vw] rounded-full bg-primary/8 blur-[80px] lg:blur-[120px]" />
           <div className="absolute bottom-[-5%] right-[-5%] w-[80vw] h-[80vw] lg:w-[45vw] lg:h-[45vw] rounded-full bg-secondary/8 blur-[80px] lg:blur-[120px]" />
           <div className="absolute top-[20%] left-[20%] w-[60vw] h-[60vw] lg:w-[25vw] lg:h-[25vw] rounded-full bg-teal-400/5 blur-[60px] lg:blur-[100px]" />
+
+          {/* Animated Plus symbols */}
+          <FloatingPlus className="top-[15%] left-[10%]" delay={0} size="text-3xl" />
+          <FloatingPlus className="top-[45%] left-[5%]" delay={1.5} size="text-xl" />
+          <FloatingPlus className="top-[75%] left-[25%]" delay={0.8} size="text-2xl" />
+          <FloatingPlus className="top-[25%] right-[25%]" delay={2} size="text-2xl" />
+          <FloatingPlus className="top-[60%] right-[10%]" delay={1.2} size="text-4xl" />
+          <FloatingPlus className="bottom-[15%] right-[35%]" delay={0.5} size="text-xl" />
+          <FloatingPlus className="top-[10%] left-[50%]" delay={2.5} size="text-lg" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full h-full flex flex-col lg:flex-row items-center text-center lg:text-left">
@@ -92,8 +179,8 @@ export default function HomeClientFallback() {
             </div>
 
             {/* Heading */}
-            <h1 className="text-[2.5rem] sm:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[1.1] lg:leading-[1.05] tracking-tight mb-5 lg:mb-6 text-foreground">
-              Your Medical <br className="hidden sm:block" />
+            <h1 className="text-[3rem] sm:text-[4.2rem] lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[1.05] sm:leading-[1.1] lg:leading-[1.05] tracking-tight mb-6 lg:mb-8 text-foreground">
+              Your <TypewriterWords words={["Medical", "Health", "Clinical", "Treatment"]} /> <br className="hidden sm:block" />
               Journey, <br />
               <span className="text-secondary">Perfectly Planned</span>
             </h1>
@@ -141,10 +228,16 @@ export default function HomeClientFallback() {
               alt="Medical Professional"
               className="w-full h-auto max-h-[45vh] object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] relative z-10"
             />
+            {/* Mobile-only plus signs around image */}
+            <FloatingPlus className="top-[20%] left-[-5%] lg:hidden" delay={0.3} size="text-2xl" />
+            <FloatingPlus className="bottom-[40%] right-[-5%] lg:hidden" delay={1.1} size="text-xl" />
           </div>
 
           {/* Desktop visible image */}
           <div className="relative w-full h-[calc(100vh-4rem)] hidden lg:flex justify-end items-end pointer-events-none z-10 lg:pr-12 xl:pr-24">
+            <FloatingPlus className="top-[20%] left-[10%]" delay={0.4} size="text-3xl" />
+            <FloatingPlus className="bottom-[30%] left-[20%]" delay={1.7} size="text-4xl" />
+            
             <img
               src="/hero.png"
               alt="Medical Professional"
