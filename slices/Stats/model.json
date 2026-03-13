@@ -1,8 +1,8 @@
 {
-  "id": "hero",
+  "id": "stats",
   "type": "SharedSlice",
-  "name": "Hero",
-  "description": "Hero section with title, subtitle and image",
+  "name": "Stats",
+  "description": "Stats section with numbers and labels",
   "variations": [
     {
       "id": "default",
@@ -11,49 +11,46 @@
       "version": "smp-initial-version",
       "description": "Default variation",
       "primary": {
-        "badge": {
-          "type": "Text",
-          "config": {
-            "label": "Badge",
-            "placeholder": "Our Journey"
-          }
-        },
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "allowTargetBlank": true,
-            "single": "h1"
+            "single": "h2"
           }
         },
-        "subtitle": {
+        "description": {
           "type": "StructuredText",
           "config": {
-            "label": "Subtitle",
+            "label": "Description",
             "allowTargetBlank": true,
             "single": "p"
           }
-        },
-        "button_text": {
+        }
+      },
+      "items": {
+        "value": {
           "type": "Text",
           "config": {
-            "label": "Button Text"
+            "label": "Value",
+            "placeholder": "1000+"
           }
         },
-        "button_link": {
-          "type": "Link",
+        "label": {
+          "type": "Text",
           "config": {
-            "label": "Button Link"
+            "label": "Label",
+            "placeholder": "Patients Served"
           }
         },
-        "image": {
-          "type": "Image",
+        "icon": {
+          "type": "Text",
           "config": {
-            "label": "Hero Image"
+            "label": "Emoji Icon",
+            "placeholder": "📈"
           }
         }
       },
-      "items": {},
       "imageUrl": ""
     }
   ]

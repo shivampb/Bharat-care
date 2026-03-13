@@ -1,0 +1,126 @@
+{
+  "id": "about_section",
+  "type": "SharedSlice",
+  "name": "AboutSection",
+  "description": "Image and text section for About page",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Image Left",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Image on the left, text on the right",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "allowTargetBlank": true,
+            "single": "h2"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "allowTargetBlank": true
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image"
+          }
+        },
+        "badge": {
+          "type": "Text",
+          "config": {
+            "label": "Badge",
+            "placeholder": "Our Story"
+          }
+        }
+      },
+      "items": {
+        "feature_icon": {
+          "type": "Text",
+          "config": {
+            "label": "Icon Name (Lucide)",
+            "placeholder": "ShieldCheck"
+          }
+        },
+        "feature_title": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Title"
+          }
+        },
+        "feature_description": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Description"
+          }
+        }
+      },
+      "imageUrl": ""
+    },
+    {
+      "id": "imageRight",
+      "name": "Image Right",
+      "docURL": "...",
+      "version": "smp-initial-version",
+      "description": "Image on the right, text on the left",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "allowTargetBlank": true,
+            "single": "h2"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "allowTargetBlank": true
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image"
+          }
+        },
+        "badge": {
+          "type": "Text",
+          "config": {
+            "label": "Badge",
+            "placeholder": "Our Vision"
+          }
+        }
+      },
+      "items": {
+        "feature_icon": {
+          "type": "Text",
+          "config": {
+            "label": "Icon Name (Lucide)",
+            "placeholder": "ShieldCheck"
+          }
+        },
+        "feature_title": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Title"
+          }
+        },
+        "feature_description": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Description"
+          }
+        }
+      },
+      "imageUrl": ""
+    }
+  ]
+}

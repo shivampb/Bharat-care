@@ -15,6 +15,7 @@ export function Navbar() {
     { name: "Hospitals", path: "/hospitals", active: !!hospital, icon: Building2 },
     { name: "Doctors", path: "/doctors", active: !!doctor, icon: UserCircle },
     { name: "Stay", path: "/accommodations", active: !!accommodation, icon: Bed },
+    { name: "Blog", path: "/blog", active: false, icon: ClipboardList },
   ];
 
   const itemsSelected = [procedure, hospital, doctor, accommodation].filter(Boolean).length;
@@ -24,7 +25,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-300">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-300">
               <HeartPulse className="w-6 h-6 text-white" />
             </div>
             <span className="font-display font-bold text-xl tracking-tight text-foreground">
@@ -33,6 +34,18 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-1">
+            <Link
+              href="/about"
+              className={cn(
+                "flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+                pathname === "/about"
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-black/5 hover:text-foreground"
+              )}
+            >
+              <span>About Us</span>
+            </Link>
+            <div className="w-1 h-1 bg-border rounded-full mx-2" />
             {steps.map((step, index) => (
               <div key={step.name} className="flex items-center">
                 <Link
@@ -50,7 +63,7 @@ export function Navbar() {
                   <span>{step.name}</span>
                 </Link>
                 {index < steps.length - 1 && (
-                  <div className="w-4 h-[1px] bg-border mx-1" />
+                  <div className="w-4 h-px bg-border mx-1" />
                 )}
               </div>
             ))}

@@ -12,4 +12,7 @@ export const components = {
   hospitals_grid: dynamic(() => import("./HospitalsGrid")),
   doctors_grid: dynamic(() => import("./DoctorsGrid")),
   accommodations_grid: dynamic(() => import("./AccommodationsGrid")),
+  stats: dynamic(() => import("./Stats")),
+  team: dynamic(() => import("./Team")),
+  about_section: dynamic(() => import("./AboutSection")),
 };

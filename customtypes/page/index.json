@@ -42,6 +42,15 @@
             },
             "accommodations_grid": {
               "type": "SharedSlice"
+            },
+            "stats": {
+              "type": "SharedSlice"
+            },
+            "team": {
+              "type": "SharedSlice"
+            },
+            "about_section": {
+              "type": "SharedSlice"
             }
           }
         }
