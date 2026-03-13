@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, DollarSign, Hotel, MapPin, Navigat
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { getAccommodationByUID, getAllAccommodations } from "@/lib/prismic";
+import { formatRating } from "@/lib/utils";
 import { AccommodationSelectButton } from "./AccommodationSelectButton";
 
 type Props = {
@@ -64,7 +65,7 @@ export default async function AccommodationDetailPage({ params }: Props) {
           ) : (
             <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80" alt="" className="w-full h-full object-cover opacity-40" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -83,7 +84,7 @@ export default async function AccommodationDetailPage({ params }: Props) {
             </span>
             <span className="hidden sm:inline">•</span>
             <span className="flex items-center">
-              <Star className="w-5 h-5 mr-1 text-yellow-500 fill-yellow-500" /> {data.rating || "4.8 Guest Rating"}
+              <Star className="w-5 h-5 mr-1 text-yellow-500 fill-yellow-500" /> {formatRating(data.rating)}
             </span>
           </div>
         </div>

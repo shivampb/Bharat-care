@@ -376,7 +376,7 @@ export default function HomeClientFallback() {
                       </span>
                       <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-100">
                         <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                        <span className="text-[11px] font-bold text-amber-700">{hospital.rating || "4.8"}</span>
+                        <span className="text-[11px] font-bold text-amber-700">{hospital.rating}</span>
                       </div>
                     </div>
                     <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors leading-tight">{hospital.name}</h3>
@@ -433,7 +433,7 @@ export default function HomeClientFallback() {
                       </span>
                       <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-100">
                         <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                        <span className="text-[11px] font-bold text-amber-700">{doctor.rating || "4.8"}</span>
+                        <span className="text-[11px] font-bold text-amber-700">{doctor.rating}</span>
                       </div>
                     </div>
                     <h3 className="font-display font-bold text-xl mb-1 group-hover:text-primary transition-colors leading-tight">{doctor.name}</h3>
@@ -492,7 +492,7 @@ export default function HomeClientFallback() {
                       </span>
                       <div className="flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded-lg border border-amber-100">
                         <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                        <span className="text-[11px] font-bold text-amber-700">{acc.rating || "4.7"}</span>
+                        <span className="text-[11px] font-bold text-amber-700">{acc.rating}</span>
                       </div>
                     </div>
                     <h3 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors">{acc.name}</h3>

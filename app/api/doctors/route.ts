@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getAllDoctors } from "@/lib/prismic";
+import { formatRating } from "@/lib/utils";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -17,7 +18,7 @@ export async function GET(request: NextRequest) {
       hospitalUid: (doc.data.hospital as any)?.uid || "",
       hospitalName: (doc.data.hospital as any)?.data?.name || "",
       image: doc.data.image?.url || "",
-      rating: doc.data.rating || "4.9/5 Rating",
+      rating: formatRating(doc.data.rating),
       acceptingPatients: doc.data.accepting_patients ?? true,
       freeConsultation: doc.data.free_consultation ?? false,
     }));

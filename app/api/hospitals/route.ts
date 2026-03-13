@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAllHospitals } from "@/lib/prismic";
+import { formatRating } from "@/lib/utils";
 
 export async function GET() {
   try {
@@ -12,7 +13,7 @@ export async function GET() {
       specialties: doc.data.specialties || "",
       accreditations: doc.data.accreditations || "",
       image: doc.data.image?.url || "",
-      rating: (doc.data as any).rating || "4.8", // Default rating if missing
+      rating: formatRating((doc.data as any).rating),
       freeAirportTransfers: doc.data.free_airport_transfers ?? false,
       internationalTranslators: doc.data.international_translators ?? false,
     }));

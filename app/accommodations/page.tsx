@@ -83,7 +83,7 @@ export default function Accommodations() {
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg text-amber-600 font-bold text-[10px] flex items-center shadow-sm">
-                    <span className="mr-1">★</span> {acc.rating || "4.8 Rating"}
+                    <span className="mr-1">★</span> {acc.rating}
                   </div>
                   <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-white font-bold text-sm flex items-center shadow-lg">
                     <DollarSign className="w-4 h-4 mr-0.5 text-green-400" />

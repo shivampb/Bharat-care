@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Award, Briefcase, CheckCircle2, Star, UserCircle
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { getDoctorByUID, getAllDoctors } from "@/lib/prismic";
+import { formatRating } from "@/lib/utils";
 import { DoctorSelectButton } from "./DoctorSelectButton";
 
 type Props = {
@@ -60,7 +61,7 @@ export default async function DoctorDetailPage({ params }: Props) {
     <div className="min-h-screen bg-slate-50 pb-24">
       {/* Hero Header */}
       <div className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 w-full bg-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-slate-950" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-12">
@@ -95,7 +96,7 @@ export default async function DoctorDetailPage({ params }: Props) {
               </div>
               <div className="flex items-center bg-slate-800/80 rounded-xl px-4 py-2 border border-slate-700">
                 <Star className="w-4 h-4 mr-2 text-yellow-500" />
-                <span className="font-medium">{data.rating || "4.9/5 Rating"}</span>
+                <span className="font-medium">{formatRating(data.rating)}</span>
               </div>
             </div>
           </div>

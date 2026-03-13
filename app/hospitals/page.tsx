@@ -147,7 +147,7 @@ export default function Hospitals() {
                               />
                             );
                           })}
-                          <span className="ml-2 text-sm font-bold text-foreground">{hosp.rating || "4.8"}</span>
+                          <span className="ml-2 text-sm font-bold text-foreground">{hosp.rating}</span>
                         </div>
                       </div>
                     </div>

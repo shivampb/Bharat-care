@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getAllAccommodations } from "@/lib/prismic";
+import { formatRating } from "@/lib/utils";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -16,7 +17,7 @@ export async function GET(request: NextRequest) {
       hospitalUid: (doc.data.nearby_hospital as any)?.uid || "",
       hospitalName: (doc.data.nearby_hospital as any)?.data?.name || "",
       image: doc.data.image?.url || "",
-      rating: doc.data.rating || "4.8 Guest Rating",
+      rating: formatRating(doc.data.rating),
     }));
 
     if (hospitalUid) {
